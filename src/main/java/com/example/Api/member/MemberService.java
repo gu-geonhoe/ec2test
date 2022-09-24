@@ -43,9 +43,6 @@ public class MemberService {
         Member member6 = new Member(6L,"string","관리자5",password2);
         member6.setRoles("ROLE_ADMIN");
         memberRepository.save(member6);
-        Member member6 = new Member(7L,"aaa","관리자7",password2);
-        member6.setRoles("ROLE_ADMIN");
-        memberRepository.save(member6);
         }
 
     public MemberService(MemberRepository memberRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -159,5 +156,4 @@ public class MemberService {
        if(request.getHeader("Authorization") == null) return true; //현재 상태 비회원이면 트루 출력 회원일시 false 반환
        else return false;
     }
-
 }

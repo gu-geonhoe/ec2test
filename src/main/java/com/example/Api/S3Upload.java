@@ -26,6 +26,7 @@ public class S3Upload {
         objMeta.setContentLength(multipartFile.getInputStream().available());
         objMeta.setContentType(multipartFile.getContentType());
 
+
         amazonS3.putObject(bucket, s3FileName, multipartFile.getInputStream(), objMeta);
 
         return amazonS3.getUrl(bucket, s3FileName).toString();

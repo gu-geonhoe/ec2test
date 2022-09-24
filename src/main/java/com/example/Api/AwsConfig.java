@@ -28,5 +28,6 @@ public class AwsConfig {
                 .withRegion(region)
                 .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
                 .build();
+
     }
 }

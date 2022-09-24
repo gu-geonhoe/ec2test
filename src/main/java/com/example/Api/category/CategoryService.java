@@ -68,6 +68,7 @@ public class CategoryService {
                 Sort.by("categoryId").descending()));
     }
 
+
     public List<Category> findAllCategoryAsList() {
         return categoryRepository.findAll();
     }

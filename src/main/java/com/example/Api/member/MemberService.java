@@ -40,7 +40,10 @@ public class MemberService {
         member5.setRoles("ROLE_ADMIN");
         memberRepository.save(member5);
         String password2 = bCryptPasswordEncoder.encode("string");
-        Member member6 = new Member(6L,"string","관리자6",password2);
+        Member member6 = new Member(6L,"string","관리자5",password2);
+        member6.setRoles("ROLE_ADMIN");
+        memberRepository.save(member6);
+        Member member6 = new Member(7L,"aaa","관리자7",password2);
         member6.setRoles("ROLE_ADMIN");
         memberRepository.save(member6);
         }

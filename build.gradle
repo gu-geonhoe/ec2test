@@ -48,6 +48,11 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-aws-parameter-store-config'
 	runtimeOnly 'mysql:mysql-connector-java'
 }
+dependencyManagement {
+	imports {
+		mavenBom "io.awspring.cloud:spring-cloud-aws-dependencies:2.3.3"
+	}
+}
 
 tasks.named('test') {
 	useJUnitPlatform()

@@ -33,6 +33,8 @@ spring:
       path: /h2
     datasource:
       url: jdbc:h2:mem:test
+  config:
+        import: 'aws-parameterstore:'
   aws:
       paramstore:
           enabled: true

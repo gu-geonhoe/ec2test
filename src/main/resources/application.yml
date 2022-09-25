@@ -2,8 +2,8 @@
 cloud:
   aws:
     credentials:
-      accessKey: ${S3_ACCESS_KEY}
-      secretKey: ${S3_SECRET_KEY}
+      accessKey: ${access.key}
+      secretKey: ${secret.key}
     s3:
       bucket: pre-project2
       dir:
@@ -33,3 +33,9 @@ spring:
       path: /h2
     datasource:
       url: jdbc:h2:mem:test
+  aws:
+      paramstore:
+          enabled: true
+          prefix: /spring-boot-aws
+          name: main
+          profileSeparator: _

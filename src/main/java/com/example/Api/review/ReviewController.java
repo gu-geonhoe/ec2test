@@ -78,7 +78,7 @@ public class ReviewController {
             updatedProduct.addReviews();
             productService.updateProduct(product,updatedProduct);
 
-            checkReviewHeartFlag(writter,savedReview);
+            //checkReviewHeartFlag(writter,savedReview);
 
             return new ResponseEntity<>(savedReview, HttpStatus.CREATED);
         }
@@ -150,10 +150,14 @@ public class ReviewController {
         boolean loginStatus = memberService.memberCheck(request);
         //현재 상태 비회원이면 true,  회원일시 false  반환
         if(loginStatus){
-            checkReviewHeartFlagsNotLongin(bestReviews);
+            if(bestReviews!=null){
+                checkReviewHeartFlagsNotLongin(bestReviews);
+            }
         }
         else {
-            checkReviewHeartFlagsLogin(memberService.getLoginMember(),bestReviews);
+            if(bestReviews!=null){
+                checkReviewHeartFlagsLogin(memberService.getLoginMember(),bestReviews);
+            }
         }
 
         return new ResponseEntity<>(bestReviews, HttpStatus.OK);
@@ -175,10 +179,14 @@ public class ReviewController {
         boolean loginStatus = memberService.memberCheck(request);
         //현재 상태 비회원이면 true,  회원일시 false  반환
         if(loginStatus){
-            checkReviewHeartFlagsNotLongin(reviewList);
+            if(reviewList!=null){
+                checkReviewHeartFlagsNotLongin(reviewList);
+            }
         }
         else {
-            checkReviewHeartFlagsLogin(memberService.getLoginMember(),reviewList);
+            if(reviewList!=null){
+                checkReviewHeartFlagsLogin(memberService.getLoginMember(),reviewList);
+            }
         }
         return new ResponseEntity<>(
                 new MultiResponseDto<>(reviewList, pageReviews),
@@ -208,7 +216,9 @@ public class ReviewController {
             }
             else {
                 List<Review> reviewList = pageReviews.getContent();
-                checkReviewHeartFlagsLogin(memberService.getLoginMember(),reviewList);
+                if(reviewList!=null){
+                    checkReviewHeartFlagsLogin(memberService.getLoginMember(),reviewList);
+                }
                 return new ResponseEntity<>(
                         new MultiResponseDto<>(reviewList, pageReviews), HttpStatus.OK);
             }
@@ -231,10 +241,14 @@ public class ReviewController {
         boolean loginStatus = memberService.memberCheck(request);
         //현재 상태 비회원이면 true,  회원일시 false  반환
         if(loginStatus){
-            checkReviewHeartFlagsNotLongin(reviewList);
+            if(reviewList!=null){
+                checkReviewHeartFlagsNotLongin(reviewList);
+            }
         }
         else {
-            checkReviewHeartFlagsLogin(memberService.getLoginMember(),reviewList);
+            if(reviewList!=null){
+                checkReviewHeartFlagsLogin(memberService.getLoginMember(),reviewList);
+            }
         }
         return new ResponseEntity<>(
                 new MultiResponseDto<>(reviewList, pageReviews),
@@ -314,7 +328,10 @@ public class ReviewController {
             }
             else {
                 List<ReviewHeart> reviewHeartList = reviewHeartsPage.getContent();
-                setReviewHeartFlagTrue(reviewHeartList);
+                if(reviewHeartList!=null){
+                    setReviewHeartFlagTrue(reviewHeartList);
+                }
+
 
                 return new ResponseEntity<>(
                         new MultiResponseDto<>(reviewMapper.reviewHeartsToReviewHeartsResponseDto(reviewHeartList), reviewHeartsPage),

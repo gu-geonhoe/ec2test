@@ -261,7 +261,7 @@ public class MemberController {
     }
 
 
-    @GetMapping("/last3")
+    @GetMapping("/last4")
     public ResponseEntity gitaciontest() {
 
 

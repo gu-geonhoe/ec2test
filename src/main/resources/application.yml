@@ -35,8 +35,8 @@ spring:
       url: jdbc:h2:mem:test
   config:
         import: 'aws-parameterstore:'
-  aws:
-      paramstore:
+aws:
+     paramstore:
           enabled: true
           prefix: /spring-boot-aws
           name: main

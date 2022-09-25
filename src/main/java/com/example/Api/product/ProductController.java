@@ -537,7 +537,7 @@ public class ProductController {
                 if(productHeartList!=null){
                     setHeartFlagTrue(productHeartList);
                 }
-
+//123
                 return new ResponseEntity<>(
                         new MultiResponseDto<>(productMapper.productHeartsToProductHeartResponseDto(productHeartList), productHeartsPage),
                         HttpStatus.OK);

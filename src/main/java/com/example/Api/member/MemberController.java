@@ -252,6 +252,14 @@ public class MemberController {
                 HttpStatus.OK);
     }
 
+
+    @GetMapping("/gitaciontest")
+    public ResponseEntity gitaciontest() {
+
+
+        return new ResponseEntity<>("성공",
+                HttpStatus.OK);
+    }
     @PostMapping("/login")
     @ApiOperation(value = "로그인  -> 토큰 반환(유효기간 하루)",
                   notes = "✅ 로그인 후 응답으로 받은 토큰은 Authorize - Value에 대입  \n  \n")

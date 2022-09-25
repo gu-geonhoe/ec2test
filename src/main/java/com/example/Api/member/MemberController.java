@@ -53,6 +53,12 @@ public class MemberController {
     private final ReviewHeartService reviewHeartService;
     private final S3Upload s3Upload;
 
+    @PostMapping
+    @ApiOperation(value = "관리자 계정 등록")
+    public ResponseEntity registerAdmin(){
+        memberService.registerAdmin();
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 
 
     @PostMapping("/signup")

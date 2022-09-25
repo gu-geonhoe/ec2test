@@ -23,7 +23,6 @@ else
 fi
 
 
-chmod +x JAR_NAME
 DEPLOY_JAR=$DEPLOY_PATH$JAR_NAME
 echo "> DEPLOY_JAR 배포"    >> /home/ubuntu/action/deploy.log
 source ~/.bashrc

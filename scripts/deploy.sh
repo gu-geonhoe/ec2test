@@ -30,3 +30,4 @@ source ~/.bashrc
 nohup java -jar $DEPLOY_JAR >> /home/ubuntu/deploy.log 2>/home/ubuntu/action/deploy_err.log &
 echo "> build 명령어: $DEPLOY_JAR" >> /home/ubuntu/action/deploy.log
 
+

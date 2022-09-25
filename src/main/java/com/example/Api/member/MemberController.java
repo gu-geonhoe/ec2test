@@ -261,11 +261,11 @@ public class MemberController {
     }
 
 
-    @GetMapping("/last4")
+    @GetMapping("/last5")
     public ResponseEntity gitaciontest() {
 
 
-        return new ResponseEntity<>("가자!!",
+        return new ResponseEntity<>("제발",
                 HttpStatus.OK);
     }
     @PostMapping("/login")

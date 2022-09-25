@@ -257,7 +257,7 @@ public class MemberController {
     public ResponseEntity gitaciontest() {
 
 
-        return new ResponseEntity<>("성공2",
+        return new ResponseEntity<>("된건가...?",
                 HttpStatus.OK);
     }
     @PostMapping("/login")

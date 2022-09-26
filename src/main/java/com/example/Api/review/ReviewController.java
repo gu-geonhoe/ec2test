@@ -339,19 +339,19 @@ public class ReviewController {
             }
         }
     }
-
-    @ApiOperation(value = "리뷰의 좋아요수 랜덤 세팅",
-            notes = "✅ 리뷰의 좋아요수를 랜덤으로 세팅합니다.\",.\n - \n " )
-    @PostMapping("/random")
-    public ResponseEntity setRandomhearts(){
-        List<Review> reviewList = reviewService.findAllReviews(Sort.by(Sort.Direction.DESC, "createdAt"));
-        for(int i = 0 ; i<reviewList.size();i++){
-            long randomHearts = (long)(Math.random()*100);
-            reviewList.get(i).setHearts(randomHearts);
-            reviewService.setRandomHearts(reviewList.get(i));
-        }
-        return new ResponseEntity<>(reviewList, HttpStatus.OK);
-    }
+//
+//    @ApiOperation(value = "리뷰의 좋아요수 랜덤 세팅",
+//            notes = "✅ 리뷰의 좋아요수를 랜덤으로 세팅합니다.\",.\n - \n " )
+//    @PostMapping("/random")
+//    public ResponseEntity setRandomhearts(){
+//        List<Review> reviewList = reviewService.findAllReviews(Sort.by(Sort.Direction.DESC, "createdAt"));
+//        for(int i = 0 ; i<reviewList.size();i++){
+//            long randomHearts = (long)(Math.random()*100);
+//            reviewList.get(i).setHearts(randomHearts);
+//            reviewService.setRandomHearts(reviewList.get(i));
+//        }
+//        return new ResponseEntity<>(reviewList, HttpStatus.OK);
+//    }
 
     public void checkReviewHeartFlag(Member member, Review review){
         if(reviewHeartService.checkAlreadyHeart(member,review)){

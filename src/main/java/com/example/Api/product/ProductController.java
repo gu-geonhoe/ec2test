@@ -544,29 +544,29 @@ public class ProductController {
             }
         }
     }
-
-    @ApiOperation(value = "상품의 좋아요수 / 리뷰수 / 조회수 랜덤 세팅",
-            notes = "✅ 상품의 정보(좋아요수 / 리뷰수 / 조회수)를 랜덤으로 세팅합니다.\",.\n - \n " )
-    @PostMapping("/random")
-    public ResponseEntity setRandomValues(){
-
-        List<Product>  products = productService.findAllProduct(Sort.by(Sort.Direction.DESC, "createdAt"));
-        for(int i = 0 ; i<products.size();i++){
-            long randomHearts = (long)(Math.random()*100);
-            long randomReviews = (long)(Math.random()*100);
-            long randomViews = (long)(Math.random()*100);
-            Product originalProduct = products.get(i);
-            Product updatedProduct = products.get(i);
-            updatedProduct.setHearts(randomHearts);
-            updatedProduct.setReviews(randomReviews);
-            updatedProduct.setViews(randomViews);
-
-            productService.updateProduct(originalProduct,updatedProduct);
-            products.set(i,updatedProduct);
-        }
-
-        return new ResponseEntity<>(products, HttpStatus.OK);
-    }
+//
+//    @ApiOperation(value = "상품의 좋아요수 / 리뷰수 / 조회수 랜덤 세팅",
+//            notes = "✅ 상품의 정보(좋아요수 / 리뷰수 / 조회수)를 랜덤으로 세팅합니다.\",.\n - \n " )
+//    @PostMapping("/random")
+//    public ResponseEntity setRandomValues(){
+//
+//        List<Product>  products = productService.findAllProduct(Sort.by(Sort.Direction.DESC, "createdAt"));
+//        for(int i = 0 ; i<products.size();i++){
+//            long randomHearts = (long)(Math.random()*100);
+//            long randomReviews = (long)(Math.random()*100);
+//            long randomViews = (long)(Math.random()*100);
+//            Product originalProduct = products.get(i);
+//            Product updatedProduct = products.get(i);
+//            updatedProduct.setHearts(randomHearts);
+//            updatedProduct.setReviews(randomReviews);
+//            updatedProduct.setViews(randomViews);
+//
+//            productService.updateProduct(originalProduct,updatedProduct);
+//            products.set(i,updatedProduct);
+//        }
+//
+//        return new ResponseEntity<>(products, HttpStatus.OK);
+//    }
 
     public void checkHeartFlag( Member member, Product product){
         if(productHeartService.checkAlreadyHeart(member,product)){

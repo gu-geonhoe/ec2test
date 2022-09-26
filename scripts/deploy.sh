@@ -19,7 +19,7 @@ then
 else
   echo "> kill -15 $CURRENT_PID" >> /home/ubuntu/action/deploy.log
   sudo kill -15 $CURRENT_PID
-  sleep 5
+  sleep 7
 fi
 echo "4914" >> /home/ubuntu/action/deploy.log
 

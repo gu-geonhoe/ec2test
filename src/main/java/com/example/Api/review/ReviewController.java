@@ -54,7 +54,7 @@ public class ReviewController {
             notes = "✅ 상품에 대한 리뷰를 등록합니다.\n - \n " )
     @PostMapping("/{product-id}")
     public ResponseEntity postReview(@PathVariable("product-id") @Positive long productId,
-                                     @Validated ReviewPostDto reviewPostDto,@RequestPart MultipartFile mfile,
+                                     @Validated ReviewPostDto reviewPostDto,
                                      HttpServletRequest request)throws IOException {
 
         boolean loginStatus = memberService.memberCheck(request);
@@ -68,7 +68,7 @@ public class ReviewController {
 
             Review review = new Review();
             review.setContent(reviewPostDto.getContent());
-            review.setImageURL(s3Upload.upload(mfile));
+            review.setImageURL(review.getImageURL());
             review.setMember(writter);
             review.setProduct(product);
             Review savedReview = reviewService.createReview(review);

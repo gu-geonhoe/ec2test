@@ -6,4 +6,5 @@ import lombok.Data;
 public class ReviewPostDto {
 
     private String content;
+    private String reviewUrl;
 }
